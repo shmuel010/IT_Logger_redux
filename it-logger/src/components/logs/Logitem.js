@@ -1,8 +1,12 @@
 import React ,{useState,useEffect} from "react";
+import {connect} from "react-redux";
+import {deleteLog} from "../../actions/logActions";
+import {setCurrent} from "../../actions/logActions";
 import Moment from "react-moment";
 
-const LogItem=({log,key})=> {
+const LogItem=({deleteLog,setCurrent,log })=> {
     const onDelete = () => {
+        console.log(deleteLog)
         deleteLog(log.id);
         M.toast({ html: 'Log Deleted' });
     };
@@ -14,7 +18,7 @@ const LogItem=({log,key})=> {
                     className={`modal-trigger ${
                         log.attention ? 'red-text' : 'blue-text'
                     }`}
-                    // onClick={() => setCurrent(log)}
+                     onClick={() => setCurrent(log)}
                 >
                     {log.message}
                 </a>
@@ -32,6 +36,4 @@ const LogItem=({log,key})=> {
     );
 };
 
-
-
-export default LogItem;
+export default connect(null, {deleteLog,setCurrent}) (LogItem);

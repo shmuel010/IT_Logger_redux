@@ -1,7 +1,9 @@
 import React, {useEffect, useState} from "react";
-import login from "./login";
+import {connect} from "react-redux";
+import login from "./logs";
+import {addLog} from "../../actions/logActions";
 
-const AddLogModal= () =>{
+const AddLogModal= ({addLog}) =>{
     const [message, setMessage] = useState("")
     const [attention, setAttention] = useState(false)
     const [tech, setTech ] = useState("")
@@ -17,8 +19,8 @@ const AddLogModal= () =>{
                 tech,
                 date: new Date()
             };
-
-            // addLog(newLog);
+            console.log(newLog)
+             addLog(newLog);
 
             M.toast({ html: `Log added by ${tech}` });
 
@@ -103,4 +105,4 @@ const modalStyle = {
 }
 
 
-export default AddLogModal;
+export default connect(null,{addLog}) (AddLogModal);
