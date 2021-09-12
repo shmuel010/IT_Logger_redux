@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
+import {connect} from "react-redux";
+import {addTechs} from "../../actions/techActions";
 
-const AddTechModal= () =>{
+const AddTechModal= ({addTechs}) =>{
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName ] = useState("")
 
@@ -9,16 +11,15 @@ const AddTechModal= () =>{
         if (firstName === '' || lastName === '') {
             M.toast({ html: '<P>Please enter a first and last name</P>' });
         } else {
-            const newLog = {
-                message,
-                attention,
-                tech,
-                date: new Date()
+            const addTech = {
+
+                firstName,
+                lastName
             };
 
-            // addLog(newLog);
+            addTechs(addTech);
 
-            M.toast({ html: `Log added by ${tech}` });
+            // M.toast({ html: `tech added by ${tech}` });
 
             // Clear Fields
             setFirstName('');
@@ -75,4 +76,4 @@ const AddTechModal= () =>{
     );
 };
 
-export default AddTechModal;
+export default connect(null,{addTechs}) (AddTechModal);

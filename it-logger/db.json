@@ -1,13 +1,6 @@
 {
   "logs": [
     {
-      "id": 2,
-      "message": "123123123123",
-      "attention": true,
-      "tech": "Sam Smith",
-      "date": "2021-09-09T14:21:27.589Z"
-    },
-    {
       "id": 3,
       "message": "shalom123123",
       "attention": true,
@@ -37,6 +30,16 @@
       "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
+    },
+    {
+      "firstName": "Shmuel",
+      "lastName": "Azrad",
+      "id": 4
+    },
+    {
+      "firstName": "asd",
+      "lastName": "asd",
+      "id": 5
     }
   ]
 }

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {connect} from "react-redux";
 import login from "./logs";
 import {addLog} from "../../actions/logActions";
-
+import TechSelectOption from "../techs/techSelectOption";
 const AddLogModal= ({addLog}) =>{
     const [message, setMessage] = useState("")
     const [attention, setAttention] = useState(false)
@@ -62,9 +62,9 @@ return(
                             <option value='' disabled>
                                 Select Technician
                             </option>
-                           <option value={"John Doe"}>John Doe</option>
-                           <option value={"Sam Smith"}>Sam Smith</option>
-                           <option value={"Sara Wilson"}>Sara Wilson</option>
+
+                            <TechSelectOption/>
+
                         </select>
                     </div>
                 </div>
